@@ -27,7 +27,9 @@ module.exports = {
     new WebpackVersionPlugin({
       cb: function(hashMap) {
         console.log(hashMap);
-        /*{
+        // 
+        /* do something, the hashMap like this:
+        {
           hash: 'fa74f31052feddb3032256f018063b88',
           chunkHash: {
             app: '4089fbc1699ec5b6009b0f9bfcdc8327',
