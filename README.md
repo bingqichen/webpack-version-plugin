@@ -1,6 +1,15 @@
 # webpack-version-plugin
 ## 使用
-```bash
+npm
+```javascript
+$ npm install webpack-version-plugin --save-dev
+```
+yarn
+```javascript
+$ yarn add webpack-version-plugin --dev
+```
+
+```javascript
 const webpack = require('webpack');
 const WebpackVersionPlugin = require('webpack-version-plugin');
 
