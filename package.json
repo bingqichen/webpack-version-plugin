@@ -1,0 +1,22 @@
+{
+  "name": "webpack-version-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bingqichen/webpack-version-plugin.git"
+  },
+  "keywords": [
+    "webpack-version"
+  ],
+  "author": "BingqiChen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bingqichen/webpack-version-plugin/issues"
+  },
+  "homepage": "https://github.com/bingqichen/webpack-version-plugin#readme"
+}
