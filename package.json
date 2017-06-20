@@ -1,7 +1,7 @@
 {
   "name": "webpack-version-plugin",
   "version": "1.0.3",
-  "description": "",
+  "description": "webpack-version-plugin",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,9 @@
     "url": "git+https://github.com/bingqichen/webpack-version-plugin.git"
   },
   "keywords": [
-    "webpack-version"
+    "webpack-version",
+    "hash",
+    "chunkHash"
   ],
   "author": "BingqiChen",
   "license": "MIT",
