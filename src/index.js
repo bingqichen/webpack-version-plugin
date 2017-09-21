@@ -17,7 +17,7 @@ WebpackVersionPlugin.prototype.apply = function(compiler, callback) {
       files: {}
     };
 
-    compilation.chunks.forEach(function (item) {
+    compilation.chunks.forEach(function (item, index) {
       hashMap.chunkHash[item.name] = item.hash;
       hashMap.files[item.name] = compilation.chunks[index].files;
     });

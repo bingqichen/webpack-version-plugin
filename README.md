@@ -42,7 +42,8 @@ module.exports = {
             vendor: 'ff7f0450afc7ff3030cba2428e593dcf'
           },
           files: {
-            app: ['js/app_fa74f310.js']
+            app: ['js/app_fa74f310.js', 'css/app_fa74f310.css'],
+            vendor: ['js/vendor_ff7f0450.js']
           }
         }*/
         versionConfig.vendorJsVersion = hashMap.hash;
@@ -64,6 +65,68 @@ module.exports = {
 {
   "vendorJsVersion": "fa74f31052feddb3032256f018063b88",
   "appVersion": "0cb630602d69887ef37c143c14bbeab7"
+}
+```
+or get the hash from the packaged files:
+```javascript
+// webpack.config.js
+
+module.exports = {
+  entry: {
+    app: 'src/app',
+    vendor: ['react', 'react-dom']
+  },
+  output: {
+    path: 'dist/',
+    filename: 'js/[name]_script_[hash:8].js',
+    publicPath: 'cdn_path'
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'css/[name]_style_[contenthash:8].css',
+      disable: false,
+      allChunks: true
+    }),
+    new WebpackVersionPlugin({
+      // You must set the cb option
+      cb: function(hashMap) {
+        console.log(hashMap);
+        /* do something, the hashMap like this:
+        {
+          ...
+          files: {
+            app: ['js/app_fa74f310.js', 'css/app_fa74f310.css'],
+            vendor: ['js/vendor_ff7f0450.js']
+          }
+        }*/
+        const versionConfig = {
+          app: {},
+          vendor: {}
+        };
+        for (const entry in hashMap.files) {
+          const oneEntryFiles = hashMap.files[entry];
+          oneEntryFiles.forEach((item) => {
+            const type = item.split('_')[1];
+            const hash = item.replace(/.+_(\S+?)\..+/g, '$1');
+            versionConfig[entry][type] = hash;
+          });
+        }
+      }
+    }),
+    ...
+  ]
+}
+
+
+//version result
+versionConfig: {
+  app: {
+    script: '0c9de9fe',
+    style: 'f8ed31b1'
+  },
+  vendor: {
+    script: '0c9de9fe'
+  }
 }
 ```
 
