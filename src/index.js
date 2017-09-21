@@ -9,8 +9,6 @@ WebpackVersionPlugin.prototype.apply = function(compiler, callback) {
   const self = this;
   compiler.plugin('emit', function(compilation, callback) {
 
-
-
     const hashMap = {
       hash: compilation.fullHash,
       chunkHash: {},
