@@ -3,11 +3,11 @@ Use the webpack version plugin, you can get the hash and chunkhash, then do some
 
 ## Install
 npm
-```javascript
+```bash
 $ npm install webpack-version-plugin --save-dev
 ```
 yarn
-```javascript
+```bash
 $ yarn add webpack-version-plugin --dev
 ```
 ## Usage
@@ -40,6 +40,9 @@ module.exports = {
           chunkHash: {
             app: '4089fbc1699ec5b6009b0f9bfcdc8327',
             vendor: 'ff7f0450afc7ff3030cba2428e593dcf'
+          },
+          files: {
+            app: ['js/app_fa74f310.js']
           }
         }*/
         versionConfig.vendorJsVersion = hashMap.hash;
