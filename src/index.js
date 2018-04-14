@@ -7,22 +7,21 @@ function WebpackVersionPlugin(opts) {
 
 WebpackVersionPlugin.prototype.apply = function(compiler, callback) {
   const self = this;
-  compiler.plugin('emit', function(compilation, callback) {
+  compiler.hooks.emit.tap({ name: 'WebpackVersionPlugin' }, function(compilation) {
 
     const hashMap = {
-      hash: compilation.fullHash,
-      chunkHash: {},
-      files: {}
+      hash: compilation.fullHash
     };
 
-    compilation.chunks.forEach(function (item, index) {
-      hashMap.chunkHash[item.name] = item.hash;
-      hashMap.files[item.name] = compilation.chunks[index].files;
+    compilation.chunks.forEach(function (item) {
+      hashMap[item.name] = {
+        chunkHash: item.hash,
+        files: item.files,
+        // contentHash: item.contentHash
+      };
     });
 
     self.opts.cb(hashMap);
-
-    callback();
   });
 };
 
