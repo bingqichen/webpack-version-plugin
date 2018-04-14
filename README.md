@@ -4,11 +4,11 @@ Use the webpack version plugin, you can get the hash and chunkhash, then do some
 ## Install
 npm
 ```bash
-$ npm install webpack-version-plugin --save-dev
+$ npm install webpack-version-plugin@1.0.8 --save-dev
 ```
 yarn
 ```bash
-$ yarn add webpack-version-plugin --dev
+$ yarn add webpack-version-plugin@1.0.8 --dev
 ```
 ## Usage
 ```javascript
