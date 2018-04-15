@@ -48,7 +48,7 @@ module.exports = {
           },
           vendor: {
             chunkHash: 'fdf3345a25608a6df7614afaf3896002',
-            vendor: [ 'js/vendor_fdf3345a.js' ]
+            files: [ 'js/vendor_fdf3345a.js' ]
           }
         }*/
         versionConfig.appVersion = hashMap.app.chunkHash;
