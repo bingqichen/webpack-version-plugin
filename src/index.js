@@ -14,6 +14,7 @@ WebpackVersionPlugin.prototype.apply = function(compiler, callback) {
     };
 
     compilation.chunks.forEach(function (item) {
+      // The dynamic module(Their name is null) will import by entry, it is not necessary to store.
       if (!item.name) {
         hashMap[item.name] = {
           chunkHash: item.hash,

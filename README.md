@@ -75,7 +75,7 @@ module.exports = {
 ## Changelog
 - 2021-06-01
 
-  Ignore Dynamic module.
+  Ignore dynamic module. Beacuse the dynamic module(Their name is null) will import by entry, it is not necessary to store.
 
 - 2018-04-16
 
