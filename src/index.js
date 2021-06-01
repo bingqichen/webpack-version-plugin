@@ -1,6 +1,6 @@
 function WebpackVersionPlugin(opts) {
   if (typeof opts.cb !== 'function') {
-    throw new Error('You must set the cb option');
+    throw new TypeError('You must set the cb function');
   }
   this.opts = opts;
 }
@@ -14,11 +14,13 @@ WebpackVersionPlugin.prototype.apply = function(compiler, callback) {
     };
 
     compilation.chunks.forEach(function (item) {
-      hashMap[item.name] = {
-        chunkHash: item.hash,
-        files: item.files,
-        // contentHash: item.contentHash
-      };
+      if (!item.name) {
+        hashMap[item.name] = {
+          chunkHash: item.hash,
+          files: item.files,
+          // contentHash: item.contentHash
+        };
+      }
     });
 
     self.opts.cb(hashMap);

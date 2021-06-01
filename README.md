@@ -73,6 +73,10 @@ module.exports = {
 ```
 
 ## Changelog
+- 2021-06-01
+
+  Ignore Dynamic module.
+
 - 2018-04-16
 
   Use webpack@v4 event hooks.
